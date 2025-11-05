@@ -1,0 +1,36 @@
+from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+
+class Register(UserCreationForm):
+    username=forms.CharField(max_length=150,required=True,widget=forms.TextInput(attrs={'class':'register-username'}))
+    password1=forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class':'register-password1'}))
+    password2=forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class':'register-password2'}))
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2']
+        widgets = {
+               'email':forms.TextInput(attrs={'class':'register-email'}),
+               'first_name':forms.TextInput(attrs={'class':'register-first_name'}),
+               'last_name':forms.TextInput(attrs={'class':'register-last_name'}),
+        }
+
+    def clean_email(self):
+        data=self.cleaned_data.get('email')
+        if User.objects.filter(email=data).exists():
+            raise forms.ValidationError("This email is already registered")
+        
+        if "gmail.com" not in data:
+          raise forms.ValidationError("Email must be a Gmail address.")
+        
+        return data
+    def clean(self):
+        cleaned_data=super().clean()
+        p1=cleaned_data.get('password1')
+        p2=cleaned_data.get('password2')
+
+        if p1!=p2:
+            raise forms.ValidationError("password does not match")
+
+
+

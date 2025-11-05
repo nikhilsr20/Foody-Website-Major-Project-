@@ -1,15 +1,72 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Register</title>
 </head>
+<link rel="stylesheet" href="{%static 'authentication/register.css'%}">
 <body>
-  <h1>Register</h1>
+  <div class="register">
+  <h1 class="register-name">Welcome Foody !</h1>
   <form method="POST">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Register</button>
+    <div class="register-div2">
+
+    
+      <div class="register-div2-name">
+      <div>
+        <p>First Name:</p>
+        {{ form.first_name }}
+        {{ form.first_name.errors }}
+        </div>
+        
+   <div>
+        <p>Last Name:</p>
+        {{ form.last_name }}
+        {{ form.last_name.errors }}
+
+    </div>
+    </div>
+    <div>
+      <p>username:</p>
+      {{form.username}}
+      {{form.username.errors}}
+       
+    </div>
+    <div>
+      <p>email :</p>
+      {{form.email}}
+      {{form.email.errors}}
+       
+    </div>
+
+    <div>
+      <p>password :</p>
+      {{form.password1}}
+      {{form.password1.errors}}
+       
+    </div>
+    <div>
+      <p> confirm password :</p>
+      {{form.password2}}
+      {{form.password2.errors}}
+       
+    </div>
+    </div>
+
+    <div class="register-button">
+    <button class="register-submit" type="submit">Register</button>
+
+
+    </div>
   </form>
+
+  <hr class="register-separate">
+  <div class="register-part2">
+    <h3> Continue with </h3>
+    <img class="register-part2-img" src="https://cdn-icons-png.flaticon.com/128/300/300221.png">
+  </div>
+  </div>
 </body>
 </html>

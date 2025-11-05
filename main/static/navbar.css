@@ -109,3 +109,12 @@
      background-color: rgb(93, 120, 143);
        transition: background-color ease-in-out 0.4s;
 }
+.navbar-signin{
+    text-decoration: none;
+    color: black;
+}
+.navbar-signin:hover{
+    color: rgb(0, 153, 255);
+    cursor: pointer;
+    transition: color ease-in-out 0.3s;
+}
