@@ -1,11 +1,12 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import AuthenticationForm
 
 class Register(UserCreationForm):
-    username=forms.CharField(max_length=150,required=True,widget=forms.TextInput(attrs={'class':'register-username'}))
-    password1=forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class':'register-password1'}))
-    password2=forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class':'register-password2'}))
+    username=forms.CharField(max_length=150,widget=forms.TextInput(attrs={'class':'register-username','placeholder':'enter username'}))
+    password1=forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class':'register-password1','placeholder':'enter password'}))
+    password2=forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class':'register-password2','placeholder':'confirm password'}))
     class Meta:
         model = User
         fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2']
@@ -14,7 +15,7 @@ class Register(UserCreationForm):
                'first_name':forms.TextInput(attrs={'class':'register-first_name'}),
                'last_name':forms.TextInput(attrs={'class':'register-last_name'}),
         }
-
+    
     def clean_email(self):
         data=self.cleaned_data.get('email')
         if User.objects.filter(email=data).exists():
@@ -33,4 +34,12 @@ class Register(UserCreationForm):
             raise forms.ValidationError("password does not match")
 
 
-
+class Login(AuthenticationForm):
+    username = forms.CharField(
+        label="Email",
+        widget=forms.EmailInput(attrs={'class': 'login-email', 'placeholder': 'Enter your email'})
+    )
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={'class': 'login-password', 'placeholder': 'Enter your password'})
+    )
+   
