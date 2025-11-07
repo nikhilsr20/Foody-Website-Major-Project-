@@ -18,16 +18,21 @@ def register(request):
 
 def login(request):
     if request.method == "POST":
+        
         form = Login(request=request, data=request.POST)
         if form.is_valid():
             email = form.cleaned_data['email']
             password = form.cleaned_data['password']
-
-            user = authenticate(request, email=email, password=password)
+            print("validd")
+            user = authenticate(request, username=email, password=password)
+            print(user)
 
             if user is not None:
                 login(request, user)  
                 return redirect('home')
+        else:
+            print("Form is invalid ❌")
+            print(form.errors)    
     else:
         form = Login()
     return render(request, 'authentication/login.html', {'form': form})

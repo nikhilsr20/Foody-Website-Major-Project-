@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
-
+from django.contrib.auth import authenticate
 class Register(UserCreationForm):
     username=forms.CharField(max_length=150,widget=forms.TextInput(attrs={'class':'register-username','placeholder':'enter username'}))
     password1=forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class':'register-password1','placeholder':'enter password'}))
@@ -35,11 +35,41 @@ class Register(UserCreationForm):
 
 
 class Login(AuthenticationForm):
-    username = forms.CharField(
+    email = forms.CharField(
         label="Email",
         widget=forms.EmailInput(attrs={'class': 'login-email', 'placeholder': 'Enter your email'})
     )
     password = forms.CharField(
         widget=forms.PasswordInput(attrs={'class': 'login-password', 'placeholder': 'Enter your password'})
     )
+    
    
+    def clean_email(self):
+        data=self.cleaned_data.get('email')
+
+        
+        if "gmail.com" not in data:
+          raise forms.ValidationError("Email must be a Gmail address.")
+        
+        return data
+    
+    def clean(self):
+         email = self.cleaned_data.get('email')
+         password1 = self.cleaned_data.get('password')
+
+         try:
+            user = User.objects.get(email=email)
+         except User.DoesNotExist:
+            raise forms.ValidationError("user does not found with this email")
+  
+         if not user.check_password(password1):
+            raise forms.ValidationError("Incorrect Password")
+
+         self.user_cache = user  
+         print("✅ clear")
+
+         return self.cleaned_data
+         
+
+   
+        

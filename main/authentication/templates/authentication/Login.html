@@ -1,11 +1,44 @@
+{% load static%}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
 </head>
+<link rel="stylesheet" href="{% static 'authentication/login.css'%}">
 <body>
-   {{form}}
+    <div class="login">
+    <h1 class="login-name">Welcome Foody !</h1>
+   <form method="post">
+     {% csrf_token %}
+    <div class="login-maindiv">
+        <div >
+             <p>Email:</p>
+            {{form.email}}
+            {{form.email.errors}}
+        </div>
+         <div >
+             <p>password:</p>
+            {{form.password}}
+            {{form.password.errors}}
+            {{ form.non_field_errors }}
+        </div>
+
+
+    </div>
+     <div  class="login-button">
+    <button class="login-submit" type="submit">Login</button>
+    </div>
+    <hr class="register-separate">
+  <div class="register-part2">
+    <h3> Continue with </h3>
+    <img class="register-part2-img" src="https://cdn-icons-png.flaticon.com/128/300/300221.png">
+  </div>
+
+</form>
+</div>
 </body>
 </html>
