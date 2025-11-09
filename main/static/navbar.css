@@ -2,20 +2,21 @@
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
+    
 }
 .navbar{
     box-sizing: border-box;
     display: flex;
     justify-content: space-around;
-    background-color:  rgb(179, 221, 243);
+    background-color:  rgb(255, 255, 255);
     align-items: center;
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
-    box-shadow: 0px 4px rgb(113, 185, 240);
+    box-shadow: 0px 1px 70px 30px rgb(8, 8, 8);
     z-index: 100;
+   
 }
 .navbar-1{
     display: flex;
@@ -38,9 +39,7 @@
     cursor: pointer;
     transition: color ease-in-out 0.4s;
 }
-.navbar-2-other{
-    text-decoration: underline;
-}
+
 .navbar-3{
      align-items: center;
     display: flex;
@@ -75,21 +74,23 @@
 }
 .navbar-3-1{
     background-color: rgb(253, 253, 253);
-    border: 1px solid black;
+    border: 0.3px solid rgb(156, 155, 155);
     padding: 5px;
     border-radius: 10px;
     gap:10px;
 }
-.navbar-3-2:hover{
-   color: rgb(0, 153, 255);
-    cursor: pointer;
-    transition: color ease-in-out 0.4s;
-}
+
 .navbar-3-3:hover{
     color: rgb(0, 153, 255);
     cursor: pointer;
     transition: color ease-in-out 0.4s;
 }
+.navbar-signin{
+    color: rgb(0, 153, 255);
+    cursor: pointer;
+    transition: color ease-in-out 0.4s;
+}
+
 
 
 .navbar-3-input{
@@ -97,16 +98,20 @@
     border: none;
     font-size:  medium;
     font-family: sans-serif;
-    color: rgb(74, 74, 74);
+    color: rgb(154, 154, 154);
+  
+
 }
 .navbar-3-input:focus{
       outline: none;
-      background-color: rgb(93, 120, 143);
+      background-color: rgb(255, 255, 255);
       transition: background-color ease-in-out 0.4s;
-      color: aliceblue;
+      color: rgb(0, 0, 0);
+      cursor: pointer;
+      
 }
 .navbar-3-1:focus-within{
-     background-color: rgb(93, 120, 143);
+     background-color: rgb(255, 255, 255);
        transition: background-color ease-in-out 0.4s;
 }
 .navbar-signin{
@@ -117,4 +122,57 @@
     color: rgb(0, 153, 255);
     cursor: pointer;
     transition: color ease-in-out 0.3s;
+}
+.profile-list{
+     
+    visibility: hidden;
+    background: #000000;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    padding:5px 20px;
+    width: 100px;
+    position: absolute;
+       /* 🔹 pushes it down below the profile image */
+  right: -40px;   
+    /* top: 37px; */
+   /* right:205px; */
+   cursor: pointer;
+}
+
+.navbar-3-2{
+    align-items: center;
+    position: relative;
+}
+.navbar-3-2:hover .profile-list{
+    visibility: visible;
+    
+    cursor: pointer;
+}
+.profile-list:hover{
+      visibility: visible;
+      cursor: pointer;
+      color: rgb(102, 196, 255);
+}
+
+.navbar-3-2-div{
+    align-items: center;
+  
+}
+.profile-list ul {
+  list-style-type: none;  
+  padding: 0;             
+  margin: 0;  
+  gap: 10px;
+
+}
+.profile-list-li-1{
+  text-decoration: none;
+  color: rgb(143, 143, 143);
+  
+  
+}
+.profile-list-li-1:hover{
+  text-decoration: none;
+ 
+ color: aqua;
 }

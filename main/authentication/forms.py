@@ -35,7 +35,7 @@ class Register(UserCreationForm):
 
 
 class Login(AuthenticationForm):
-    email = forms.CharField(
+    username = forms.CharField(
         label="Email",
         widget=forms.EmailInput(attrs={'class': 'login-email', 'placeholder': 'Enter your email'})
     )
@@ -45,7 +45,7 @@ class Login(AuthenticationForm):
     
    
     def clean_email(self):
-        data=self.cleaned_data.get('email')
+        data=self.cleaned_data.get('username')
 
         
         if "gmail.com" not in data:
@@ -54,11 +54,13 @@ class Login(AuthenticationForm):
         return data
     
     def clean(self):
-         email = self.cleaned_data.get('email')
+         username = self.cleaned_data.get('username')
          password1 = self.cleaned_data.get('password')
 
          try:
-            user = User.objects.get(email=email)
+            user = User.objects.get(email=username)
+            print(user)
+            print(User)
          except User.DoesNotExist:
             raise forms.ValidationError("user does not found with this email")
   
@@ -66,7 +68,7 @@ class Login(AuthenticationForm):
             raise forms.ValidationError("Incorrect Password")
 
          self.user_cache = user  
-         print("✅ clear")
+        #  print("✅ clear")
 
          return self.cleaned_data
          
