@@ -104,3 +104,12 @@ body {
    color: rgb(255, 0, 0);
    list-style: none;
 }
+.login-forgotpassword{
+   color: rgb(0, 157, 255);
+   cursor: pointer;
+   text-decoration: none;
+}
+.login-forgotpassword:hover{
+color: blue;
+transition: font-weight ease 1s;
+}

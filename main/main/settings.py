@@ -127,3 +127,11 @@ AUTHENTICATION_BACKENDS = [
     'authentication.backends.EmailBackend',  # your custom backend
     'django.contrib.auth.backends.ModelBackend',  # default Django backend
 ]
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+EMAIL_HOST_USER = 'nikhilsingh160604@gmail.com'
+EMAIL_HOST_PASSWORD = 'klxl iksb ltao qhwd' 
+DEFAULT_FROM_EMAIL = 'Food Order App <nikhilsingh160604@gmail.com>'

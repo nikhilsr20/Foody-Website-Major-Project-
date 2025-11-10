@@ -44,3 +44,7 @@ def login_view(request):
 def logout_view(request):
     logout(request)           
     return redirect('home') 
+
+
+# def changepass(request):
+#     return render(request,'authentication/password_reset_form.html')

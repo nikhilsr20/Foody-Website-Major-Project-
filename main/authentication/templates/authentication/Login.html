@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
     
 </head>
 <link rel="stylesheet" href="{% static 'authentication/login.css'%}">
@@ -18,19 +18,26 @@
         <div >
              <p>Email:</p>
             {{form.username}}
+          
             {{form.username.errors}}
         </div>
          <div >
              <p>password:</p>
             {{form.password}}
-            {{form.password.errors}}
-            {{ form.non_field_errors }}
+          
+    {{ form.password.errors }}
+    {{ form.non_field_errors }}
+
+
         </div>
 
 
     </div>
      <div  class="login-button">
     <button class="login-submit" type="submit">Login</button>
+    </div>
+    <div>
+      <a href="{% url 'password_reset' %}" class="login-forgotpassword">Forgot password ?</a>
     </div>
     <hr class="register-separate">
   <div class="register-part2">
