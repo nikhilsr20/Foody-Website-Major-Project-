@@ -14,6 +14,7 @@ class Register(UserCreationForm):
                'email':forms.TextInput(attrs={'class':'register-email'}),
                'first_name':forms.TextInput(attrs={'class':'register-first_name'}),
                'last_name':forms.TextInput(attrs={'class':'register-last_name'}),
+
         }
     
     def clean_email(self):
@@ -59,8 +60,7 @@ class Login(AuthenticationForm):
 
          try:
             user = User.objects.get(email=username)
-            print(user)
-            print(User)
+          
          except User.DoesNotExist:
             raise forms.ValidationError("user does not found with this email")
   
@@ -68,7 +68,7 @@ class Login(AuthenticationForm):
             raise forms.ValidationError("Incorrect Password")
 
          self.user_cache = user  
-        #  print("✅ clear")
+        
 
          return self.cleaned_data
          
