@@ -1,0 +1,148 @@
+{% load i18n static %}
+{% load socialaccount %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% trans "Sign in with Google" %}</title>
+
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #4285f4, #006eff, #759fff, #35d5ea);
+      background-size: 300% 300%;
+      animation: gradient 6s ease infinite;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .login-card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      padding: 40px 30px;
+      text-align: center;
+      width: 350px;
+      transition: transform 0.3s ease;
+    }
+
+    .login-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .google-icon {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      color: #202124;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #5f6368;
+      font-size: 0.95rem;
+      margin-bottom: 25px;
+    }
+
+    button {
+      background-color: #4285f4;
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      width: 100%;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #3367d6;
+      transform: scale(1.05);
+    }
+
+    .cancel-btn {
+      background: none;
+      border: 2px solid #d93025;
+      color: #d93025;
+      margin-top: 12px;
+    }
+
+    .cancel-btn:hover {
+      background: #d93025;
+      color: #fff;
+    }
+
+    .extra-options {
+      margin-top: 20px;
+      font-size: 0.9rem;
+    }
+
+    .extra-options a {
+      color: #4285f4;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .extra-options a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 20px;
+      font-size: 0.8rem;
+      color: #5f6368;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-card">
+    <img
+      src="https://cdn-icons-png.flaticon.com/128/300/300221.png"
+      alt="Google Logo"
+      class="google-icon"
+    />
+    <h1>{% trans "Sign in with Google" %}</h1>
+
+    <p>
+      {% blocktrans with provider_name=provider.name site_name=site.name %}
+        You are about to sign in using your {{ provider_name }} account.
+      {% endblocktrans %}
+    </p>
+
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit">{% trans "Continue with Google" %}</button>
+    </form>
+
+    <form action="/" method="get">
+      <button type="submit" class="cancel-btn">{% trans "Cancel" %}</button>
+    </form>
+
+    <div class="extra-options">
+      <a href="{% provider_login_url 'google' process='login' %}?prompt=select_account">
+        {% trans "Sign in with a different account" %}
+      </a>
+    </div>
+
+    <footer>
+      {% trans "Your Google login information is secure and never shared." %}
+    </footer>
+  </div>
+</body>
+</html>

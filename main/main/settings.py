@@ -38,7 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'homepage',
-    'authentication'
+    'authentication',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 ]
 
 MIDDLEWARE = [
@@ -49,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'main.urls'
@@ -126,7 +132,36 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTHENTICATION_BACKENDS = [
     'authentication.backends.EmailBackend',  # your custom backend
     'django.contrib.auth.backends.ModelBackend',  # default Django backend
+    'allauth.account.auth_backends.AuthenticationBackend',
 ]
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+         'scope':[
+             'profile',
+             'email'
+         ],
+         'Auth_params':{
+             'prompt': 'select_account',
+             'access_type':'online',
+         },
+         'OAUTH_PKCE_ENABLED': True,
+        
+        'client_id': '33333308681-cpmo1t289bip80lq42so9g691kgmhr1e.apps.googleusercontent.com',
+        'secret': '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',
+        'key': ''
+        
+    }
+}
+
+SITE_ID=2
+LOGIN_URL='/authentication/login/'
+
+LOGIN_REDIRECT_URL = '/homepage/home'
+LOGOUT_REDIRECT_URL = '/authentication/login/'
+SOCIALACCOUNT_AUTO_SIGNUP = False
+
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587

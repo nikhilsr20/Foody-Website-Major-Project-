@@ -1,5 +1,5 @@
 {% load static%}
-
+{% load socialaccount %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +41,7 @@
     </div>
     <hr class="register-separate">
   <div class="register-part2">
-    <h3> Continue with </h3>
+    <a class="google" href="{% provider_login_url 'google' %}"> Continue with </a>
     <img class="register-part2-img" src="https://cdn-icons-png.flaticon.com/128/300/300221.png">
   </div>
 

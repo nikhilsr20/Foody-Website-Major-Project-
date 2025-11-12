@@ -113,3 +113,8 @@ body {
 color: blue;
 transition: font-weight ease 1s;
 }
+.google{
+   text-decoration: none;
+   font-size: medium;
+   color: black;
+}
