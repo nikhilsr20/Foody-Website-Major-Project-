@@ -29,23 +29,12 @@
         <p class="navbar-2-other">other</p>
       </div>
 
-      <div class="navbar-3">
-        <div class="navbar-3-1">
-          <img
-            class="navbar-3-search"
-            src="https://cdn-icons-png.flaticon.com/128/151/151773.png"
-            alt="searchlogo"
-          />
-          <input class="navbar-3-input" type="search" placeholder="search" />
-        </div>
-
-        <div class="navbar-3-2">
+     <div class="navbar-3-2">
           <img
             class="navbar-3-profile"
             src="https://cdn-icons-png.flaticon.com/128/1077/1077114.png"
             alt="profile"
-          />
-        
+          /> 
   {% if not user.is_authenticated %}
     <a class="navbar-signin" href="{% url 'register' %}"> Sign in </a>
   {% else %}
@@ -61,17 +50,9 @@
     </div>
   {% endif %}
 </div>
-
-        <div class="navbar-3-3">
-          <img
-            class="navbar-3-cart"
-            src="https://cdn-icons-png.flaticon.com/128/5337/5337564.png"
-            alt="cart"
-          />
-          <a class="navbar-3-3-cart" href="{% url 'cart' %}">cart</a>
-        </div>
-      </div>
     </div>
+
+       
     {% block body%} {% endblock %}
   </body>
 </html>

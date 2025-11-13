@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'homepage',
+    'cart',
     'authentication',
     'django.contrib.sites',
     'allauth',

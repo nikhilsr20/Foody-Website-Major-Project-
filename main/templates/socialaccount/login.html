@@ -10,8 +10,8 @@
   <style>
     body {
       font-family: "Poppins", sans-serif;
-      background: linear-gradient(135deg, #4285f4, #006eff, #759fff, #35d5ea);
-      background-size: 300% 300%;
+      background: url('/static/bag.png');
+      background-size: 100% 100%;
       animation: gradient 6s ease infinite;
       height: 100vh;
       display: flex;
@@ -20,11 +20,11 @@
       margin: 0;
     }
 
-    @keyframes gradient {
+    /* @keyframes gradient {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
-    }
+    } */
 
     .login-card {
       background: #fff;
@@ -69,6 +69,7 @@
       width: 100%;
       font-weight: 500;
       transition: all 0.3s ease;
+      margin-bottom: 10px;
     }
 
     button:hover {
@@ -78,9 +79,12 @@
 
     .cancel-btn {
       background: none;
-      border: 2px solid #d93025;
+      border: 0.5px solid #a53c35;
       color: #d93025;
-      margin-top: 12px;
+     margin-top: 30px;
+      padding: 2px 20px;
+      border-radius: 10px;
+      text-decoration: none;
     }
 
     .cancel-btn:hover {
@@ -131,7 +135,7 @@
     </form>
 
     <form action="/" method="get">
-      <button type="submit" class="cancel-btn">{% trans "Cancel" %}</button>
+      <a href="{% url 'login' %}" class="cancel-btn">{% trans "Cancel" %}</a>
     </form>
 
     <div class="extra-options">

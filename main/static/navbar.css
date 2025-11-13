@@ -27,7 +27,7 @@
    font-size: larger;
     height: 50px;
     cursor: pointer;
-    
+    text-decoration: none;
 }
 .navbar-2{
     display: flex;
@@ -117,6 +117,15 @@
 .navbar-signin{
     text-decoration: none;
     color: black;
+}
+.navbar-3-3-cart{
+    text-decoration: none;
+    color: black;
+}
+.navbar-3-3-cart:hover{
+    color: rgb(0, 153, 255);
+    cursor: pointer;
+    transition: color ease-in-out 0.3s;
 }
 .navbar-signin:hover{
     color: rgb(0, 153, 255);
