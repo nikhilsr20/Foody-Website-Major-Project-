@@ -1,6 +1,92 @@
 {% extends 'navbar-cart.html' %}
-
+{% load static %}
+{% block css%}
+<link rel="stylesheet" href="{% static 'cart/csscart.css'%}">
+{% endblock %}
 {% block body %}
-<h1>jelloo</h1>
+<div class="cart-section">
+<div class="cart-top">
+     <div class="cart-top-addresses">
+           <img class="cart-top-addresses-img" src="https://cdn-icons-png.flaticon.com/128/6218/6218733.png">
+           <p class="cart-top-addresses-p">choose a delivery address</p>
+           <button class="cart-top-addresses-button" type="button">add +</button>
+     </div>
+     
+</div>
+<div class="cart-main">
+     <div class="cart-main-card">
+            <div class="cart-main-card-restaurant" >
+                <img class="cart-main-card-restaurant-img"  src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_100,h_100,c_fill/RX_THUMBNAIL/IMAGES/VENDOR/2025/9/1/41b0492e-3e4e-4b8a-8f7b-bed178cc209b_695745.JPG">
+                <div class="cart-main-card-resdetails">
+                    <h4>Pizza Hut</h4>
+                    <h5>Location</h5>
+                </div>
+            </div>
+            <div class="cart-main-card-items">
+                <h2 class="cart-main-card-items-heading">Items</h2>
+                 <div class="cart-main-card-items-list">
+                  <div class="cart-main-card-items-1">
+                      
+                      <p> <img class="cart-main-card-items-1-img" src="https://cdn-icons-png.flaticon.com/128/14968/14968197.png"> Chicken Tikka Ultimate Cheese Pizza</p>
+                      <div class="cart-main-card-items-1-add">
+                        <button  class="cart-main-card-items-1-add-button">-</button>
+                        <span>1</span>
+                        <button class="cart-main-card-items-1-add-button">+</button>
+                      </div>
+                      <h4 class="cart-main-card-items-1-money">$756</h4>
+                  </div>
+                  </div>
+            </div>
+
+            <div class="cart-main-card-coupons">
+                 <img class="cart-main-card-coupons-img" src="https://cdn-icons-png.flaticon.com/128/879/879757.png">
+                 <span>Apply coupon</span>
+            </div>
+            <div class="cart-main-card-bill">
+                   <h5 class="cart-main-card-bill-heading">Bill Details</h5>
+                   <div class="cart-main-card-bill-div1">
+                   <p >Item Total</p>
+                   <span>$756</span>
+                   </div>
+                   <div  class="cart-main-card-bill-div2">
+                   <p>Delivery fee | 10.4kms</p>
+                   <span>$80</span>
+                   </div>
+
+                   <hr class="cart-main-card-bill-hr1">
+
+                   <div  class="cart-main-card-bill-div3">
+                   <p>Gst & Other Charges</p>
+                   <span>$111.89</span>
+                   </div>
+
+                   <hr class="cart-main-card-bill-hr2">
+
+                   <div  class="cart-main-card-bill-div4">
+                   <h5>To pay</h5>
+                   <span>$890</span>
+                   </div>
+
+
+            </div>
+     </div>
+     <div class="cart-main-div2">
+     <div class="cart-main-readpolicy">
+              <h3 class="cart-main-readpolicy-top">
+                Review your order and address details to avoid cancellations
+              </h3 >
+              <p class="cart-main-readpolicy-bot">
+                 Note: Please ensure your address and order details are correct. This order, if cancelled, is non-refundable.
+              </p>
+     </div>
+     <div>
+        <button class="cart-main-div2-confirmorder">Confirm Order</button>
+     </div>
+     </div>
+    
+     
+</div>
+</div>
 
 {% endblock %}
+
