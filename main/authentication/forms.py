@@ -4,9 +4,11 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate
 class Register(UserCreationForm):
-    username=forms.CharField(max_length=150,widget=forms.TextInput(attrs={'class':'register-username','placeholder':'enter username'}))
-    password1=forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class':'register-password1','placeholder':'enter password'}))
-    password2=forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class':'register-password2','placeholder':'confirm password'}))
+    username=forms.CharField(max_length=150,widget=forms.TextInput(attrs={'class':'register-username'}))
+    password1=forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class':'register-password1','placeholder':'Enter password'}))
+    password2=forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class':'register-password2','placeholder':'Confirm password'}))
+
+    first_name=forms.CharField(widget=forms.TextInput(attrs={'autofocus': True,'class':'register-first_name'}))
     class Meta:
         model = User
         fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2']
