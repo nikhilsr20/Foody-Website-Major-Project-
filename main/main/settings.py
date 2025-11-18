@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'homepage',
     'cart',
+    'Mealwheel',
     'authentication',
     'django.contrib.sites',
     'allauth',

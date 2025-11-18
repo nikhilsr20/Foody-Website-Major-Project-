@@ -78,7 +78,7 @@
           src="https://cdn-icons-png.flaticon.com/128/8216/8216411.png"
           alt="location"
         />
-        <p class="navbar-4-name">MealWheel</p>
+        <a href="{% url 'meal' %}" class="navbar-4-name">MealWheel</a>
       </div>
     </div>
       </div>
@@ -86,5 +86,25 @@
     </div>
 
     {% block body%} {% endblock %}
+
+    <script>
+        window.addEventListener("scroll", () => {
+                 console.log(window.scrollY);
+                   let a = document.querySelector(".navbar");
+                 if(window.scrollY==0){
+                   a=document.querySelector(".navbar-onscroll");
+                   a.className="navbar"
+                   console.log(a);
+                 }
+                 else{
+                     a=document.querySelector(".navbar");
+                     a.className="navbar-onscroll"
+                    console.log(a);
+                 }
+         });
+         
+
+
+    </script>
   </body>
 </html>

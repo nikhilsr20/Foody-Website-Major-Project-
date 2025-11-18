@@ -14,7 +14,24 @@
     top: 0;
     right: 0;
     left: 0;
-    box-shadow: 0px 1px 50px 10px rgb(189, 224, 255);
+    
+    z-index: 100;
+    transition: all ease-in-out 0.2s;
+}
+.navbar-onscroll{
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-evenly;
+    transition: all ease-in-out 0.2s;
+    background-color: #ffffff;
+    filter: brightness(1.2)  opacity(0.9)  ;
+    
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    
     z-index: 100;
    
 }
@@ -25,7 +42,7 @@
     color: rgb(0, 153, 255);
     font-weight: bolder;
    font-size: larger;
-    height: 50px;
+    height: 60px;
     cursor: pointer;
     text-decoration: none;
 }
@@ -74,6 +91,10 @@
     align-items: center;
     gap: 3px;
     cursor: pointer;
+}
+.navbar-4-name{
+    text-decoration: none;
+    color: #000000;
 }
 .navbar-4-name:hover{
  color: rgb(0, 153, 255);
