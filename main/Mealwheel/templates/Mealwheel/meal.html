@@ -1,17 +1,80 @@
+{% extends 'navbar-cart.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+{% block css %}
     <link rel="stylesheet" href="{% static 'MealWheel/meal.css' %}">
-</head>
-<body>
-    <div class="mealwheel">
+{% endblock %}
+
+
+  
+
+    {% block body%}
+ <div class="mealwheel">
          <div class="mealwheel-heading">
-            Meal Picker Wheel
+            <h1 class="mealwheel-heading-1">Meal Picker Wheel</h1>
          </div>
+
+         <div class="circle">
+            <div class="container" id="wheel">
+                <div class="segment red"><span class="red-data">Pizza 🍕</span></div>
+                <div class="segment green"><span class="green-data">Salad 🥗</span></div>
+                 <div class="segment blue"><span class="blue-data">Sushi 🍣</span></div>
+                <div class="segment yellow"><span class="yellow-data">Dessert 🍰</span></div>
+                 <div class="segment orange"><span class="orange-data">Biryani 🍛</span> </div>
+            </div>
+            <div class="indicator">
+            </div>
+            <div class="indicator-circle">
+           
+       </div>
+            
+        </div>
+          <div class="spin">
+           <button class="spin-btn" onclick="spinWheel()">SPIN</button>
+           </div>
+       
     </div>
-</body>
-</html>
+
+    <div class="pop-up-offer">
+              <div>
+                <img src="">
+                <h1></h1>
+                <div>
+                    <h3>
+
+                    </h3>
+                    <button>
+                        copy
+                    </button>
+                </div>
+                
+              </div>
+    </div>
+
+
+     <script>
+        let wheel = document.getElementById("wheel");
+
+let spinning = false;
+
+function spinWheel() {
+    if (spinning) return;
+    spinning = true;
+
+    const segments = ["Pizza 🍕", "Salad 🥗", "Sushi 🍣", "Dessert 🍰", "Biryani 🍛"];
+
+    let pick = Math.floor(Math.random() * 5);
+    let angle = 360 * 5 + (360 - pick * 72 - 36);
+
+    wheel.style.transform = `rotate(${angle}deg)`;
+
+    setTimeout(() => {
+         console.log("Selected: " + segments[pick]);
+        spinning = false;
+    }, 4200); 
+}
+
+    </script>
+    {% endblock %}
+    
+   
+    

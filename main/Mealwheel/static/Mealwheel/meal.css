@@ -1,29 +1,144 @@
 *{
     margin: 0%;
     padding: 0%;
+    
+   
+}
+body{
+
+ margin-top: 60px;
+ overflow-y: hidden;
+ overflow-x: hidden;
 }
 .mealwheel {
+
+   /* visibility: hidden; */
    background-repeat: no-repeat;
-   background: linear-gradient(to bottom,
-      rgb(44, 44, 44),
-      rgb(54, 54, 54),
-      rgb(65, 65, 65),
-      rgb(72, 72, 72),
-      rgb(85, 85, 85),
-      rgb(72, 72, 72),
-      rgb(65, 65, 65),
-      rgb(46, 46, 46),
-      rgb(25, 25, 25)
-   );
-    
+  
    height: 100vh;
    background-size: cover;  
    background-position: center;
    
-   transition: all 0.5s ease-in-out;
+   
 }
 
 
 .mealwheel-heading{
-    color: azure;
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    justify-content: center;
+   
 }
+.mealwheel-heading-1 {
+    background: url('https://images.pexels.com/photos/370799/pexels-photo-370799.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+
+    -webkit-background-clip: text;
+    color: transparent;
+
+    animation: bgMove 5s 2 alternate ease-in-out;
+}
+
+@keyframes bgMove {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+.circle{
+    
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.container{
+    position: relative;
+    width: 470px;
+    height: 470px;
+    border-radius: 50%;
+
+    border: 0.1px solid #dadada;
+    overflow: hidden;
+    transition: transform 4s cubic-bezier(.17,.67,.35,1);
+}
+
+.segment {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    left: 50%;
+    
+    transform-origin: left bottom;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    
+}
+
+
+
+.green  { background: #43A047; transform: rotate(72deg)   skewY(-18deg); }
+.blue   { background: #1E88E5; transform: rotate(144deg)  skewY(-18deg); }
+.yellow { background: #FDD835; transform: rotate(216deg)  skewY(-18deg); }
+.orange { background: #FB8C00; transform: rotate(288deg)  skewY(-18deg); }
+.red{
+    background: #E53935;
+     transform: rotate(0deg) skewY(-18deg);
+}
+.red-data,.green-data,.orange-data,.yellow-data,.blue-data{
+    margin-right: 20px;
+    margin-top: 20px;
+}
+.indicator{
+   width: 0;
+    height: 0;
+    border-left: 18px solid transparent;
+    border-right: 18px solid transparent;
+    border-bottom: 28px solid #000;  
+    
+    position: absolute;
+   transform: translateY(-20px);
+    
+
+}
+.indicator-circle{
+    width: 38px;
+    height: 38px;
+    position: absolute;
+    border-radius: 30px;
+    background-color: #000;
+}
+
+.spin-btn {
+    margin-top: 20px;
+    padding: 12px 30px;
+    background: linear-gradient(to right, #9ac3e8, #08438c);
+    border: none;
+    color: white;
+    font-size: 18px;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+    transition: 0.3s;
+}
+
+.spin-btn:hover {
+    transform: scale(1.05);
+}
+.spin{
+    display: flex;
+    justify-content: center;
+}
+
