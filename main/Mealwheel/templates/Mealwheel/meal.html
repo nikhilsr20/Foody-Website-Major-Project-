@@ -1,80 +1,100 @@
-{% extends 'navbar-cart.html' %}
-{% load static %}
-{% block css %}
-    <link rel="stylesheet" href="{% static 'MealWheel/meal.css' %}">
-{% endblock %}
+{% extends 'navbar-cart.html' %} {% load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'MealWheel/meal.css' %}" />
+{% endblock %} {% block body%}
+<div class="mealwheel" id="main-mealwheel">
+  <div class="mealwheel-heading">
+    <h1 class="mealwheel-heading-1">Meal Picker Wheel</h1>
+  </div>
 
-
-  
-
-    {% block body%}
- <div class="mealwheel">
-         <div class="mealwheel-heading">
-            <h1 class="mealwheel-heading-1">Meal Picker Wheel</h1>
-         </div>
-
-         <div class="circle">
-            <div class="container" id="wheel">
-                <div class="segment red"><span class="red-data">Pizza 🍕</span></div>
-                <div class="segment green"><span class="green-data">Salad 🥗</span></div>
-                 <div class="segment blue"><span class="blue-data">Sushi 🍣</span></div>
-                <div class="segment yellow"><span class="yellow-data">Dessert 🍰</span></div>
-                 <div class="segment orange"><span class="orange-data">Biryani 🍛</span> </div>
-            </div>
-            <div class="indicator">
-            </div>
-            <div class="indicator-circle">
-           
-       </div>
-            
-        </div>
-          <div class="spin">
-           <button class="spin-btn" onclick="spinWheel()">SPIN</button>
-           </div>
-       
+  <div class="circle">
+    <div class="container" id="wheel">
+      <div class="segment red"><span class="red-data">Pizza 🍕</span></div>
+      <div class="segment green"><span class="green-data">Salad 🥗</span></div>
+      <div class="segment blue"><span class="blue-data">Sushi 🍣</span></div>
+      <div class="segment yellow">
+        <span class="yellow-data">Dessert 🍰</span>
+      </div>
+      <div class="segment orange">
+        <span class="orange-data">Biryani 🍛</span>
+      </div>
     </div>
+    <div class="indicator"></div>
+    <div class="indicator-circle"></div>
+  </div>
 
-    <div class="pop-up-offer">
-              <div>
-                <img src="">
-                <h1></h1>
-                <div>
-                    <h3>
+  <div class="spin">
+    <button class="spin-btn" onclick="spinWheel()">SPIN</button>
+  </div>
+</div>
 
-                    </h3>
-                    <button>
-                        copy
-                    </button>
-                </div>
-                
-              </div>
+<div class="pop-up-offer" id="main2-mealwheel">
+
+  <div class="pop-up-offer-div">
+ 
+    <h1 class="pop-up-offer-div-h-1">Your today's Mealwheel Offer </h1>
+    <div class="wheel-image-div">
+    <img class="wheel-image" src="{% static 'Mealwheel/wheel.png'%}">
     </div>
+    <h3 class="pop-up-offer-div-h-2" id="offer-item">Get flat 50% off on </h3>
+    <div class="pop-up-offer-div-div">
+      <p class="pop-up-offer-div-code" id="secret-code">swiggyrijkasn1232</p>
+      <button class="pop-up-offer-div-button" id="id-pop-up-offer-div-button"><img class="pop-up-offer-div-img" src="https://cdn-icons-png.flaticon.com/128/126/126498.png" onclick="copycode()"></button>
+    </div>
+    <div class="pop-up-offer-div-div2">
+        <button class="pop-up-offer-div-button-2">Claim</button>
+    </div>
+  </div>
 
+</div>
 
-     <script>
-        let wheel = document.getElementById("wheel");
+<script>
+  let wheel = document.getElementById("wheel");
 
-let spinning = false;
+  let spinning = false;
 
-function spinWheel() {
+  function spinWheel() {
     if (spinning) return;
     spinning = true;
 
-    const segments = ["Pizza 🍕", "Salad 🥗", "Sushi 🍣", "Dessert 🍰", "Biryani 🍛"];
+    const segments = [
+      "Pizza 🍕",
+      "Salad 🥗",
+      "Sushi 🍣",
+      "Dessert 🍰",
+      "Biryani 🍛",
+    ];
 
     let pick = Math.floor(Math.random() * 5);
     let angle = 360 * 5 + (360 - pick * 72 - 36);
 
     wheel.style.transform = `rotate(${angle}deg)`;
-
+    angle = 0;
     setTimeout(() => {
-         console.log("Selected: " + segments[pick]);
-        spinning = false;
-    }, 4200); 
-}
+      console.log("Selected: " + segments[pick]);
+      spinning = false;
+    }, 4200);
+  setTimeout(() => {
+    let x = document.getElementById("main-mealwheel");
+    x.style.opacity='0.3'
+    x.style.filter = "blur(16px)";
+    
+     let y = document.getElementById("main2-mealwheel");
+     y.style.display="flex"
 
-    </script>
-    {% endblock %}
+     let z= document.getElementById("offer-item");
+     z.innerText=`Get flat 50% off on ${segments[pick]}` 
+     }, 4200);
+
+  }
+  function copycode(){
+    let a=document.getElementById("secret-code").innerText;
+    navigator.clipboard.writeText(a);
     
-   
-    
+    let b=document.getElementById("id-pop-up-offer-div-button")
+    b.style.border="2px solid green"
+    setInterval(() => {
+     b.style.border="none" 
+    }, 2200);
+  }
+</script>
+{% endblock %}
