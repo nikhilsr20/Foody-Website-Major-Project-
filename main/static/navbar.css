@@ -130,7 +130,16 @@
     border-radius: 10px;
     gap:10px;
 }
-
+.navbar-2-other{
+    text-decoration: none;
+    
+}
+.navbar-2-other:hover{
+  
+    color: rgb(0, 153, 255);
+    cursor: pointer;
+    transition: color ease-in-out 0.4s;
+}
 .navbar-3-3:hover{
     color: rgb(0, 153, 255);
     cursor: pointer;
