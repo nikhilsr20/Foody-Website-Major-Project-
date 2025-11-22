@@ -1,10 +1,9 @@
 .mainpage{
-filter: blur(15px);
-position: fixed;
+
 top: 0;
 right: 0;
 left: 0;
-pointer-events: none;  
+  
 }
 
 
@@ -214,12 +213,13 @@ color: rgb(124, 124, 124);
 /* location  */
 
 .location{
+    display: none;
     position: absolute;
     top: 0;
     right: 0;
     left: 0;
     z-index: 2;
-    display: flex;
+    
     justify-content: center;
     margin-top: 100px;
     
@@ -233,6 +233,7 @@ color: rgb(124, 124, 124);
 
 }
 .location-popup-1-input{
+    margin-top: 10px;
     display: flex;
     justify-content: start;
 }
@@ -269,19 +270,22 @@ transition: color ease 0.2s;
 }
 .location-popup-1-saved{
 
-    margin-top: 30px;
+    margin-top: 7px;
     height: 300px;
     overflow-y: auto;
     overflow-x: hidden;
     scrollbar-width: thin;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    
 }
 .location-popup-1-saved-head{
     font-size: larger;
     font-weight: 600;
     margin-top: 30px;
+    font-weight: 300;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+ 
 }
 .location-popup-1-saved-1{margin-top: 30px;
       width: 400px;
@@ -295,18 +299,38 @@ transition: color ease 0.2s;
   border:1px solid #29a855;
   
 }
+.location-map-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+
+}
+.location-map-image-img{
+    width: 50px;
+    height: 50px;
     
+}
+.location-map-image-head{
+    font-size: 0px;
+    animation: pop 2s ease 0.5s 1 forwards;
+}
+@keyframes pop{
+    0%{
+        font-size: 0px;
+    }
+    100%{
+        font-size: 20px;
+    }
+}
 
 
 .location-popup-1-saved-1-head{
     font-size: large;
     font-weight: 700;
 }
-#globe {
-    
-    inset: 0;
-    z-index: 9999;  /* keep it on top */
-}
+
+
 
 
 /* pop up 2 */
@@ -314,4 +338,119 @@ transition: color ease 0.2s;
 
 .location-popup-2{
     display: none;
+      padding: 20px;
+    width: 600px;
+    height: 600px;
+    background: #ffffff;
+
 }
+.Addnewaddress-page{
+    
+   
+    height: 400px;
+    
+    width: 450px;
+    padding: 1px 3px ;
+}
+.Addnewaddress-page-heading{
+    display: flex;
+     margin-top: 30px;
+     gap: 20px;
+     align-items: center;
+     
+}
+.Addnewaddress-page-heading-img{
+    width: 10px;
+    height: 10px;
+    
+}
+.Addnewaddress-page-heading-button{
+    background: none;
+    border: none;
+    
+
+}
+.Addnewaddress-page-heading-text{
+    font-size: large;
+
+}
+.Addnewaddress-page-heading-img:hover {
+   
+    cursor: pointer;
+   
+
+}
+.Addnewaddress-page-googlemap{
+    margin-top: 20px;
+    width: 300px;
+    height: 200px;
+    border: 1px solid black;
+}
+.Addnewaddress-page-inputs{
+    flex-direction: column;
+    display: flex;
+    margin-top: 20px;
+    
+}
+.Addnewaddress-page-inputs-div1,.Addnewaddress-page-inputs-div2,.Addnewaddress-page-inputs-div3{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+}
+.Addnewaddress-page-inputs-div1-input1,.Addnewaddress-page-inputs-div1-input2,.Addnewaddress-page-inputs-div1-input3{
+    margin-top: 3px;
+    height: 40px;
+    outline: none;     
+     border: 0.2px solid  rgb(187, 185, 185);
+     border-radius: 2px;
+     cursor: pointer;
+     padding: 3px;
+}
+.Addnewaddress-page-inputs-div1-input1:focus,.Addnewaddress-page-inputs-div1-input2:focus,.Addnewaddress-page-inputs-div1-input3:focus{
+   box-shadow:0px 0px 5px 0px  #83b7f2;
+
+}
+.Addnewaddress-page-inputs-div4{
+    display: flex;
+    justify-content: space-between;
+   
+    
+}
+
+.Addnewaddress-page-inputs-div4-button{
+width: 110px;
+height: 40px;
+border: none;
+background-color: #ffffff;
+ cursor: pointer;
+}
+
+
+.Addnewaddress-page-inputs-div4-img{
+    width: 15px;
+    height: 15px;
+    
+    
+}
+
+.Addnewaddress-page-inputs-div4-1,.Addnewaddress-page-inputs-div4-2,.Addnewaddress-page-inputs-div4-3{
+   display: flex;
+    
+    justify-content: center;
+   align-items: center;
+   border: 0.1px solid rgb(193, 193, 193);
+   padding: 2px 10px;
+    cursor: pointer;
+}
+.Addnewaddress-page-inputs-div4-1:hover,.Addnewaddress-page-inputs-div4-2:hover,.Addnewaddress-page-inputs-div4-3:hover{
+    box-shadow:1px 1px 1px #83b7f2;
+    cursor: pointer;
+}
+
+
+.location-popup-1-back{
+    position: absolute;
+    font-weight: 100;
+    cursor: pointer;
+}
+

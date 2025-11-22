@@ -1,7 +1,7 @@
 {% extends 'navbar.html' %} {% load static %} {% block css %}
 <link rel="stylesheet" href="{% static 'homepage/mainpage.css' %}" />
 {% endblock %} {% block body %}
-<div class="mainpage">
+<div class="mainpage" id="mainpage--">
 <div class="main">
   <div class="main-div1">
     <img class="main-div1-img" src="{% static 'banner.png' %}" alt="logo" />
@@ -15,8 +15,8 @@
     <img
       class="main3-div2-arrows"
       src="https://cdn-icons-png.flaticon.com/128/271/271220.png"
-    />
-    <div class="main-3-food">
+     onclick="leftmove()"/>
+    <div class="main-3-food" id="main-3">
       <img
         src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/6ef07bda-b707-48ea-9b14-2594071593d1_Biryani.png"
       />
@@ -74,6 +74,7 @@
       class="main3-div2-arrows"
       src="https://cdn-icons-png.flaticon.com/128/271/271228.png"
       alt=""
+      onclick="rightmove()"
     />
   </div>
 </div>
@@ -290,16 +291,21 @@
 <!-- location -->
 
 
-<div class="location">
-    
-  <div class="location-popup-1">
-   
+<div class="location" id="location-main">
+  
+  <div class="location-popup-1" id="location-1">
+         <h1 class="location-popup-1-back" onclick="openmain()">X</h1>
+          <div class="location-map-image">
+        <h3 class="location-map-image-head"> Select Location</h3>
+      <img class="location-map-image-img" src="https://cdn-icons-png.flaticon.com/128/854/854952.png" >
+    </div>
+    <hr>
     <div class="location-popup-1-input">
         <input class="location-popup-1-input-in" type="text" placeholder="search for area , streetname ...">
     </div>
     <div class="location-popup-1-gps">
         <img class="location-popup-1-gps-img" src="https://cdn-icons-png.flaticon.com/128/1549/1549466.png">
-        <p class="location-popup-1-gps-p" class="location-popup-1-gps">Get Current Location</p>
+        <p class="location-popup-1-gps-p" class="location-popup-1-gps" onclick="openl()">Get Current Location</p>
     </div>
     <h1 class="location-popup-1-saved-head"> Saved Address</h1>
     <div class="location-popup-1-saved">
@@ -311,15 +317,15 @@
     </div>
   </div>
 
-  <div class="location-popup-2">
-    <div class="location-popup-1-gps">
+  <div class="location-popup-2" id="location-2">
+    <div class="location-popup-1-gp">
       <div class="Addnewaddress-page">
         <div class="Addnewaddress-page-heading">
           <button class="Addnewaddress-page-heading-button">
             <img
               class="Addnewaddress-page-heading-img"
               src="https://cdn-icons-png.flaticon.com/128/1828/1828778.png"
-            />
+             onclick="closel()"/>
           </button>
           <h1 class="Addnewaddress-page-heading-text">Save delivery address</h1>
         </div>
@@ -383,5 +389,50 @@
     </div>
   </div>
 
+  
+<script>
+  function openl(){
+      let l1=document.getElementById("location-1")
+      l1.style.display='none'
+      let l2=document.getElementById("location-2")
+      l2.style.display="block"
+  }
+    function closel(){
+      let l1=document.getElementById("location-1")
+      l1.style.display='block'
+      let l2=document.getElementById("location-2")
+      l2.style.display="none"
+  }
+  function openmain(){
+      let l1=document.getElementById("mainpage--")
+      
+      let l2=document.getElementById("location-main")
+
+      l2.style.display='none'
+      l1.style.filter='none'
+      l1.style.position=''
+     l1.style.pointerEvents=''
+    }
+  function openlocation(){
+    let l1=document.getElementById("mainpage--")
+      
+      let l2=document.getElementById("location-main")
+
+      l2.style.display='flex'
+      l1.style.filter = 'blur(15px)';
+      l1.style.position='fixed'
+      l1.style.pointerEvents='none'
+  }
+
+  function rightmove(){
+    x=document.getElementById("main-3")
+    x.scrollBy({ left: 100, behavior: "smooth" });
+  }
+    function leftmove(){
+    x=document.getElementById("main-3")
+    x.scrollBy({ left: -100, behavior: "smooth" });
+  }
+
+</script>
   {% endblock %}
 </div>
